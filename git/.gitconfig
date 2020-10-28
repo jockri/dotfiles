@@ -1,0 +1,17 @@
+[user]
+	name = jockri
+	email = git@jockri.com
+
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+	whitespace = space-before-tab,trailing-space
+
+[apply]
+	# Detect whitespace errors when applying a patch
+	whitespace = fix
+
+[alias]
+	st = status
+	diff = diff --color-moved
+
