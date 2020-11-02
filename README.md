@@ -39,3 +39,9 @@ $ cd .. && rm -rf fonts
 ```
 $ cp -r git/* ~/
 ```
+
+# Set the custom binaries
+
+```
+$ cp -r bin/* /usr/local/bin/
+```

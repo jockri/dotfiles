@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 1 ] && [ "$1" == "-h" ]; then
+    echo 'dsh - wrapper for "docker exec -it CONTAINER bash".'
+    echo 'Usage: dsh                   # interactive mode'
+    echo '       dsh CONTAINER         # bash'
+    echo '       dsh CONTAINER cmd     # run cmd'
+    exit 0
+fi
+
+if [ $# -eq 0 ]; then
+    PS=$(docker ps | tail -n +2)
+    if [ -z "$PS" ]; then
+        echo 'There are no running containers.'
+        exit 0
+    fi
+
+    echo 'Runned containers:'
+    I=0
+    echo "$PS" | while IFS= read -r CONTAINER ; do
+        I=$(($I+1))
+        echo " $I. $CONTAINER"
+    done
+
+    echo ''
+    echo -n 'Choose container: '
+    read NUMBER
+    re='^[0-9]+$'
+    if ! [[ $NUMBER =~ $re ]]; then
+        echo "Invalid number."
+        exit 1
+    fi
+
+    CONTAINER=$(echo "$PS" | sed -ne "${NUMBER}p")
+    echo " -> $CONTAINER"
+    ID=$(echo "$CONTAINER" | awk '{print $1}')
+    docker exec -it $ID sh
+else
+    # Manual mode
+    CONTAINER=$1
+    if [ $# -le 1 ]; then
+        docker exec -it ${CONTAINER} bash
+        exit 0
+    fi
+    CMD=${@:2}
+    docker exec -it ${CONTAINER} ${CMD}
+fi
+exit 0
