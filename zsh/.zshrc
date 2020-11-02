@@ -102,6 +102,7 @@ export LANG=en_US.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="$PATH:/Users/kristof/Projects/flutter/bin"
+export PATH="$PATH:/usr/local/opt/mysql-client@5.7/bin"
 
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh

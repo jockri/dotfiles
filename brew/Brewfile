@@ -18,6 +18,7 @@ brew "openssl"
 brew "vim"
 brew "ncdu"
 brew "nvm"
+brew "mysql-client@5.7"
 
 cask "sublime-text"
 cask "google-chrome"
