@@ -46,4 +46,6 @@ cask "slack"
 cask "toggl-track"
 cask "robo-3t"
 cask "1password"
+cask "postman"
+
 
