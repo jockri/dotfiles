@@ -34,7 +34,7 @@ if [ $# -eq 0 ]; then
     CONTAINER=$(echo "$PS" | sed -ne "${NUMBER}p")
     echo " -> $CONTAINER"
     ID=$(echo "$CONTAINER" | awk '{print $1}')
-    docker exec -it $ID sh
+    docker exec -it $ID bash
 else
     # Manual mode
     CONTAINER=$1
