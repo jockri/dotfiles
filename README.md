@@ -28,7 +28,7 @@ $ cp zsh/.zshrc ~/.zshrc
 Install the Powerline fonts and configure iTerm2 to use them (Preferences -> Profiles -> Text -> Font -> "Meso LG M for powerline")
 
 ```
-$ mv git clone https://github.com/powerline/fonts.git
+$ git clone https://github.com/powerline/fonts.git
 $ cd fonts
 $ ./install.sh
 $ cd .. && rm -rf fonts
